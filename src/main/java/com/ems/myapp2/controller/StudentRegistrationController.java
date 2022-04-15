@@ -39,8 +39,22 @@ public class StudentRegistrationController {
 
 	@PutMapping("update")
 	public String updateData(@RequestBody Student student) {
-		srepo.save(student);
+		System.out.println(student.getId() +""+student.getEmail());
+		srepo.updateById(student.getEmail(),student.getId());
 		return "SUCCESS";
+	}
+	
+	@DeleteMapping("delete/{id}")
+	public String deleteData(@PathVariable("id") int id) {
+		
+             srepo.deleteById(id);
+             return id+"";
+	}
+	
+	@DeleteMapping("deleteall")
+	public String deleteAllStudents() {
+	       srepo.deleteAll();
+		   return "";
 	}
 
 }

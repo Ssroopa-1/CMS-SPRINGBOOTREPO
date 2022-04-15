@@ -20,5 +20,13 @@ public class StudentService {
 	public List<Student> getAllStudent(){
 		return srepo.findAll();
 	}
+	public String deleteStudent(int id) {
+		srepo.deleteById(id);
+		return "SUCCESS";
+	}
+	public String deleteAllStudents() {
+		srepo.deleteAll();;
+		return "SUCCESSFULLLLL";
+	}
 	
 	}
